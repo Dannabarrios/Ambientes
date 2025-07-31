@@ -13,12 +13,12 @@ public class main {
                 System.out.println("b");
                 break;
             case 3:
-                System.out.println("c");
+                System.out.println("clothess");
                 break;
             default:
-                System.out.println("d");
+                System.out.println("invalido");
         }
     
-        scanner.close();
+        scanner.close();rata
     }
 }
