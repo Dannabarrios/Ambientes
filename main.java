@@ -7,7 +7,8 @@ public class main {
         System.out.print("Bienvenidos");
         switch (scanner.nextInt()) {
             case 1:
-                System.out.println("a");
+                System.out.println("r");
+                System.out.print("hello");
                 break;
             case 2:
                 System.out.println("b");
