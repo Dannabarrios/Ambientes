@@ -26,10 +26,13 @@ public class main {
                 sede.mostrarUbicacion();  
                 break;
             case 2:
-                System.out.println("eyy");
+                lineaFormacion linea = new lineaFormacion();
+                linea.registrarLinea();
                 break;
             case 3:
-                System.out.println("kurule");
+               programaFormacion programa = new programaFormacion();
+               programa.registrarPrograma();
+               programa.mostrarPrograma();
                 break;
             default:
                 System.out.println("navidad");
