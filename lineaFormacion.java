@@ -28,8 +28,6 @@ public class lineaFormacion {
            System.out.println("Nombre de la linea " + (i + 1) + ":");
            nombre[i]= scanner.nextLine();
         }
-
-        System.out.println("lineas registradas correctamente: ");
     }
 
     // Método para mostrar la línea registrada
