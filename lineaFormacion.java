@@ -18,7 +18,7 @@ public class lineaFormacion {
 
             // 
             if (cantidad < 1 || cantidad > 3) {
-                System.out.println("Debe ingresar un numero entre 1 y 3");
+                System.out.println("Debe ingresar un numero entre 1 - 3");
             }
         } while (cantidad < 1 || cantidad > 3);
 
