@@ -28,11 +28,23 @@ public class main {
             case 2:
                 lineaFormacion linea = new lineaFormacion();
                 linea.registrarLinea();
+                linea.mostrarLinea();
                 break;
             case 3:
                programaFormacion programa = new programaFormacion();
                programa.registrarPrograma();
                programa.mostrarPrograma();
+                break;
+            case 4:
+                System.out.println("aaa");
+                break;
+            case 5:
+                System.out.println("pequeña.");
+                break;  
+            case 6:
+                aprendiz aprendiz = new aprendiz();
+                aprendiz.registrarAprendiz();
+                aprendiz.mostrarAprendiz();
                 break;
             default:
                 System.out.println("navidad");

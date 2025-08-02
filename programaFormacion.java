@@ -18,7 +18,7 @@ public class programaFormacion {
     }
 
     public void mostrarPrograma() {
-        System.out.println("📘 Nombre del programa: " + nombre);
+        System.out.println(" Nombre del programa: " + nombre);
     }
 
     public String getNombre() {
