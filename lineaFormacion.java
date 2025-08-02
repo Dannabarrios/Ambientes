@@ -3,37 +3,49 @@
 import java.util.Scanner;
 
 public class lineaFormacion {
-    private String nombre;
-    
+    private String[] nombre;
 
-    // Constructor vacío
-    public lineaFormacion() {}
-
-    // Constructor completo
-    public lineaFormacion(String nombre, String descripcion) {
-        this.nombre = nombre;
-    }
-
-    // Método para registrar una línea de formación
     public void registrarLinea() {
         Scanner scanner = new Scanner(System.in);
+        int cantidad;
 
-        System.out.println("\n Registro de Línea de Formación:");
-        System.out.print("Nombre de la línea: ");
-        nombre = scanner.nextLine();
+        System.out.println("\n Registro de Linea de Formación:");
 
+        do {
+            System.out.print("Ingrese cuantas lineas de formacion desea registrar (1-3): ");
+            cantidad = scanner.nextInt();
+            scanner.nextLine(); 
 
-        System.out.println("Línea de formación registrada\n");
+            // 
+            if (cantidad < 1 || cantidad > 3) {
+                System.out.println("Debe ingresar un numero entre 1 y 3");
+            }
+        } while (cantidad < 1 || cantidad > 3);
+
+        nombre = new String[cantidad];
+
+        for(int i=0; i < cantidad; i++){
+           System.out.println("Nombre de la linea " + (i + 1) + ":");
+           nombre[i]= scanner.nextLine();
+        }
+
+        System.out.println("lineas registradas correctamente: ");
     }
 
     // Método para mostrar la línea registrada
     public void mostrarLinea() {
-        System.out.println(" Nombre: " + nombre);
-       
+        if (nombre != null && nombre.length > 0) {
+            System.out.println("Lineas de formacion registradas:");
+            for (int i = 0; i < nombre.length; i++) {
+                System.out.println("Linea " + (i + 1) + ": " + nombre[i]);
+            }
+        } else {
+            System.out.println("No hay lineas registradas");
+        }
     }
 
     // Getters para acceder a los atributos si se necesitan en otras clases
-    public String getNombre() {
+    public String[] getNombre() {
         return nombre;
     }  
 }
