@@ -28,6 +28,7 @@ public class main {
             case 2:
                 lineaFormacion linea = new lineaFormacion();
                 linea.registrarLinea();
+                linea.mostrarLinea();
                 break;
             case 3:
                programaFormacion programa = new programaFormacion();
