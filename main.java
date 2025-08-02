@@ -4,8 +4,9 @@ public class main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         sede sede = new sede(); // objeto
-
-        System.out.println("Bienvenido al sistema de gestión de ambientes");
+    
+        do{
+            System.out.println("Bienvenido al sistema de gestión de ambientes");
         System.out.println("Seleccione una opción:");
         System.out.println("1. Registrar ubicación");
         System.out.println("2. Registrar linea de formación");
@@ -38,5 +39,6 @@ public class main {
             default:
                 System.out.println("navidad");
         }
+        }while(true);
     }
 }
