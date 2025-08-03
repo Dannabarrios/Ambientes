@@ -4,9 +4,11 @@ public class main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         sede sede = new sede(); // objeto
+        lineaFormacion linea = new lineaFormacion();
+        programaFormacion programa = new programaFormacion();
     
         do{
-            System.out.println("Bienvenido al sistema de gestión de ambientes");
+        System.out.println("Bienvenido al sistema de gestión de ambientes");
         System.out.println("Seleccione una opción:");
         System.out.println("1. Registrar ubicación");
         System.out.println("2. Registrar linea de formación");
@@ -27,13 +29,11 @@ public class main {
                 sede.mostrarUbicacion();  
                 break;
             case 2:
-                lineaFormacion linea = new lineaFormacion();
                 linea.registrarLinea();
                 linea.mostrarLinea();
                 break;
             case 3:
-               programaFormacion programa = new programaFormacion();
-               programa.registrarPrograma();
+               programa.registrarPrograma(linea.getNombre());
                programa.mostrarPrograma();
                 break;
             case 4:
