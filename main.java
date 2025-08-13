@@ -6,8 +6,10 @@ public class main {
         sede sede = new sede(); // objeto
         lineaFormacion linea = new lineaFormacion();
         programaFormacion programa = new programaFormacion();
+        ambiente ambiente = new ambiente();
     
         do{
+        System.out.println("_____________________________________________");   
         System.out.println("Bienvenido al sistema de gestión de ambientes");
         System.out.println("Seleccione una opción:");
         System.out.println("1. Registrar ubicación");
@@ -37,7 +39,7 @@ public class main {
                programa.mostrarPrograma();
                 break;
             case 4:
-                System.out.println("aaa");
+                ambiente.asignarAmbientes(linea);
                 break;
             case 5:
                 System.out.println("pequeña.");
