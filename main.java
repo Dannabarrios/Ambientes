@@ -7,9 +7,10 @@ public class main {
         lineaFormacion linea = new lineaFormacion();
         programaFormacion programa = new programaFormacion();
         ambiente ambiente = new ambiente();
+        aprendiz aprendiz = new aprendiz();
     
         do{
-        System.out.println("_____________________________________________");   
+        System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - ");   
         System.out.println("Bienvenido al sistema de gestión de ambientes");
         System.out.println("Seleccione una opción:");
         System.out.println("1. Registrar ubicación");
