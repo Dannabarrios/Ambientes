@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class main {
@@ -7,29 +8,24 @@ public class main {
         lineaFormacion linea = new lineaFormacion();
         programaFormacion programa = new programaFormacion();
         ambiente ambiente = new ambiente();
-<<<<<<< HEAD
-<<<<<<< HEAD
         instructor instructor = new instructor();
         asignarInstructor asignarInstructor = new asignarInstructor();
+        asignarAmbiente asignar = new asignarAmbiente();
+        asignarAmbiente asignador = new asignarAmbiente();
+        ArrayList<coordinador> coordinadores = new ArrayList<>();
+        
+        asignar.mostrarAsignacionAmbiente();
+
         asignarAmbiente asignarAmbiente = new asignarAmbiente();
+        ambientesAprendices aa = new ambientesAprendices();
+        aprendiz aprendiz = new aprendiz(null, null, null, null);
 
         
-        
-        
-        aprendiz aprendiz = new aprendiz();
+    
+      
     
         do{
         System.out.println("- - - - - - - - - - - ");   
-=======
-        aprendiz aprendiz = new aprendiz();
-=======
-        asignarAmbiente aa = new asignarAmbiente();
-        aprendiz aprendiz = new aprendiz(null, null, null, null);
->>>>>>> d0bd97dc80eeeaa63d0ca641413a6ff5636725ac
-    
-        do{
-        System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - ");   
->>>>>>> 055006a37bee746f8e6a2c2a4db23dab325a7986
         System.out.println("Bienvenido al sistema de gestión de ambientes");
         System.out.println("Seleccione una opción:");
         System.out.println("1. Registrar ubicación");
@@ -39,11 +35,12 @@ public class main {
         System.out.println("5. Registrar instructor");
         System.out.println("6. Mirar asignacion de instructor por linea");
         System.out.println("7. Mirar asignacion de instructor por ambiente");
-        System.out.println("8. Registrar aprendiz");
+        System.out.println("8. Registrar aprendiz y asignar ambientes");
         System.out.println("9. Asignar horario");
         System.out.println("10. Reportes");
         System.out.println("11. Validar restricciones");
-        System.out.println("12. Salir");
+        System.out.println("12. Coordinador");
+        System.out.println("13. Salir");
         System.out.print("Opción: ");
         int opcion = scanner.nextInt();
 
@@ -69,22 +66,101 @@ public class main {
                 break;
               
             case 6:
-<<<<<<< HEAD
                asignarInstructor.asignarLineas(instructor.getNombres(), linea.getNombre());
                asignarInstructor.mostrarAsignacionInstructor();
 
                 break;
             case 7:
-                asignarAmbiente.asignarAmbientes(ambiente.getTipos,ambiente.getDescripciones,ambiente.getInventarios());
-                asignarAmbiente.mostrarAsignacionAmbientesInstructor();
+                asignador.asignarAmbientess(instructor.getNombres(), ambiente, 0);
+                asignador.mostrarAsignacionAmbiente();
                 break;
+
             case 8:
-                aprendiz.registrarAprendiz();
-                aprendiz.mostrarAprendiz();
-=======
-                aa.asignarAprendices(linea, programa, ambiente);
->>>>>>> d0bd97dc80eeeaa63d0ca641413a6ff5636725ac
+               aa.asignarAprendices(linea, programa, ambiente);
                 break;
+            case 9:
+                System.err.println("");
+                break;
+            case 10:
+                System.out.println("Reportes no implementados aún.");
+                break;
+            case 11:
+                System.out.println("Validación de restricciones no implementada aún.");
+                break;
+            case 12:
+                System.out.println("\n--- Gestión de Coordinadores ---");
+                System.out.println("1. Registrar coordinador");
+                System.out.println("2. Asignar instructores a coordinador");
+                System.out.println("3. Mostrar coordinadores");
+                System.out.print("Seleccione opción: ");
+                int opcCoord = scanner.nextInt();
+                scanner.nextLine(); // limpiar buffer
+
+                switch (opcCoord) {
+                case 1:
+                System.out.print("Ingrese nombre del coordinador: ");
+                String nombreCoord = scanner.nextLine();
+                coordinador c = new coordinador(nombreCoord);
+                coordinadores.add(c);
+                System.out.println("Coordinador creado.");
+                break;
+
+                case 2:
+                if (coordinadores.isEmpty()) {
+                System.out.println("No hay coordinadores registrados.");
+                break;
+               }
+                System.out.println("Seleccione coordinador:");
+                for (int i = 0; i < coordinadores.size(); i++) {
+                System.out.println((i + 1) + ". " + coordinadores.get(i).getNombre());
+              }
+                int idxCoord = scanner.nextInt() - 1;
+                scanner.nextLine();
+
+                if (idxCoord < 0 || idxCoord >= coordinadores.size()) {
+                System.out.println("Opción inválida.");
+                break;
+                }
+                coordinador coordSeleccionado = coordinadores.get(idxCoord);
+
+                String[] nombresInst = instructor.getNombres();
+                if (nombresInst == null || nombresInst.length == 0) {
+                System.out.println("No hay instructores registrados.");
+                break;
+                }
+                System.out.println("Instructores disponibles:");
+                for (int i = 0; i < nombresInst.length; i++) {
+                System.out.println((i + 1) + ". " + nombresInst[i]);
+                }
+
+                System.out.print("Ingrese número del instructor a asignar: ");
+                int idxInst = scanner.nextInt() - 1;
+                scanner.nextLine();
+
+                if (idxInst < 0 || idxInst >= nombresInst.length) {
+                System.out.println("Opción inválida.");
+                break;
+                }
+                coordSeleccionado.asignarInstructor(nombresInst[idxInst]);
+                System.out.println("Instructor asignado al coordinador.");
+                break;
+
+                case 3:
+                if (coordinadores.isEmpty()) {
+                System.out.println("No hay coordinadores registrados.");
+                } else {
+                for (coordinador co : coordinadores) {
+                    co.mostrarInstructores();
+                    System.out.println();
+                }
+            }
+            break;
+
+        default:
+            System.out.println("Opción inválida.");
+    }
+    break;
+                
             default:
                 System.out.println("navidad");
         }
