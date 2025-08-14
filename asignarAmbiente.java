@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import java.util.Random;
 
 public class asignarAmbiente {
@@ -42,3 +43,6 @@ public class asignarAmbiente {
     }
 }
 
+=======
+
+>>>>>>> ea7694264a1d3578163900e0cc4a03331e5ffde4
