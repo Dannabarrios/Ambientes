@@ -8,6 +8,7 @@ public class main {
         programaFormacion programa = new programaFormacion();
         ambiente ambiente = new ambiente();
 <<<<<<< HEAD
+<<<<<<< HEAD
         instructor instructor = new instructor();
         asignarInstructor asignarInstructor = new asignarInstructor();
         asignarAmbiente asignarAmbiente = new asignarAmbiente();
@@ -21,6 +22,10 @@ public class main {
         System.out.println("- - - - - - - - - - - ");   
 =======
         aprendiz aprendiz = new aprendiz();
+=======
+        asignarAmbiente aa = new asignarAmbiente();
+        aprendiz aprendiz = new aprendiz(null, null, null, null);
+>>>>>>> d0bd97dc80eeeaa63d0ca641413a6ff5636725ac
     
         do{
         System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - ");   
@@ -64,6 +69,7 @@ public class main {
                 break;
               
             case 6:
+<<<<<<< HEAD
                asignarInstructor.asignarLineas(instructor.getNombres(), linea.getNombre());
                asignarInstructor.mostrarAsignacionInstructor();
 
@@ -75,6 +81,9 @@ public class main {
             case 8:
                 aprendiz.registrarAprendiz();
                 aprendiz.mostrarAprendiz();
+=======
+                aa.asignarAprendices(linea, programa, ambiente);
+>>>>>>> d0bd97dc80eeeaa63d0ca641413a6ff5636725ac
                 break;
             default:
                 System.out.println("navidad");

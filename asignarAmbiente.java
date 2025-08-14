@@ -27,7 +27,7 @@ public class asignarAmbiente {
         
     }
 
-    public void mostrarAsignacionAmbientesInstructor() {
+    public void mostrarAsignacionAmbiente() {
         if (nombresInstructor != null && ambienteFormacionAsignadas != null) {
             System.out.println("Instructores con programas de formación asignadas:");
             for (int i = 0; i < nombresInstructor.length; i++) {
@@ -41,3 +41,4 @@ public class asignarAmbiente {
         return nombresInstructor;
     }
 }
+
