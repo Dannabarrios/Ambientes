@@ -157,17 +157,24 @@ public class ambiente {
 }
 
 
-   
-   
-    public String[][] getTipos() {
-    return tipos;
+    public String getDescripciones() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getDescripciones'");
     }
 
-    public String[][] getDescripciones() {
-    return descripciones;
-   }
-
-    public String[][] getInventarios() {
-    return inventarios;
+    public Object getTipos() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getTipos'");
     }
+    
+    public void mostrarTodosAmbientes() {
+    if (tipos == null) {
+        System.out.println("No hay ambientes registrados.");
+        return;
+    }
+    for (int i = 0; i < tipos.length; i++) {
+        mostrarAmbientesDeLinea(i, "Línea " + (i+1));
+    }
+}
+
 }
