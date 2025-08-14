@@ -15,16 +15,16 @@ public class asignarAmbiente {
 
     public void asignarAmbientess(String[] instructores, ambiente amb, int idxLinea) {
         if (instructores == null || instructores.length == 0) {
-            System.out.println("❌ No hay instructores registrados.");
+            System.out.println("No hay instructores registrados.");
             return;
         }
 
-        String[] ambientesLinea = amb.getTipos()[idxLinea];
-        String[] descripcionesLinea = amb.getDescripciones()[idxLinea];
-        String[] inventariosLinea = amb.getInventarios()[idxLinea];
+        String[] ambientesLinea = ((String[][]) amb.getTipos())[idxLinea];
+        String[] descripcionesLinea = ((String[][]) amb.getDescripciones())[idxLinea];
+        String[] inventariosLinea = ((String[][]) amb.getInventarios())[idxLinea];
 
         if (ambientesLinea == null || ambientesLinea.length == 0) {
-            System.out.println("❌ No hay ambientes registrados para esta línea.");
+            System.out.println("No hay ambientes registrados para esta línea.");
             return;
         }
 
@@ -49,7 +49,7 @@ public class asignarAmbiente {
 
     public void mostrarAsignacionAmbiente() {
         if (nombresInstructor != null && ambienteFormacionAsignadas != null) {
-            System.out.println("\n📋 Instructores con ambientes y horarios asignados:");
+            System.out.println("Instructores con ambientes y horarios asignados:");
             for (int i = 0; i < nombresInstructor.length; i++) {
                 System.out.println("Instructor: " + nombresInstructor[i]);
                 System.out.println("  Ambiente: " + ambienteFormacionAsignadas[i]);
@@ -59,7 +59,7 @@ public class asignarAmbiente {
                 System.out.println();
             }
         } else {
-            System.out.println("⚠️ No hay asignaciones realizadas.");
+            System.out.println("No hay asignaciones realizadas.");
         }
     }
 
@@ -67,4 +67,3 @@ public class asignarAmbiente {
         return nombresInstructor;
     }
 }
-
