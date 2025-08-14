@@ -7,6 +7,7 @@ public class main {
         lineaFormacion linea = new lineaFormacion();
         programaFormacion programa = new programaFormacion();
         ambiente ambiente = new ambiente();
+<<<<<<< HEAD
         instructor instructor = new instructor();
         asignarInstructor asignarInstructor = new asignarInstructor();
         asignarAmbiente asignarAmbiente = new asignarAmbiente();
@@ -18,6 +19,12 @@ public class main {
     
         do{
         System.out.println("- - - - - - - - - - - ");   
+=======
+        aprendiz aprendiz = new aprendiz();
+    
+        do{
+        System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - ");   
+>>>>>>> 055006a37bee746f8e6a2c2a4db23dab325a7986
         System.out.println("Bienvenido al sistema de gestión de ambientes");
         System.out.println("Seleccione una opción:");
         System.out.println("1. Registrar ubicación");

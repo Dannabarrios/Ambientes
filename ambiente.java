@@ -1,10 +1,11 @@
 import java.util.Scanner;
 
 public class ambiente {
-    private String[][] tipos;        // tipos por línea
+    private String[][] tipos;        
     private String[][] descripciones;
     private String[][] inventarios;
 
+    // Método principal para asignar ambientes a una línea
     public void asignarAmbientes(lineaFormacion lf) {
         Scanner sc = new Scanner(System.in);
         String[] lineas = lf.getNombre();
@@ -14,95 +15,135 @@ public class ambiente {
             return;
         }
 
-        // Arreglos por línea (se crean cuando se usa cada línea)
-        tipos = new String[lineas.length][];
-        descripciones = new String[lineas.length][];
-        inventarios = new String[lineas.length][];
+        if (tipos == null) {
+            tipos = new String[lineas.length][];
+            descripciones = new String[lineas.length][];
+            inventarios = new String[lineas.length][];
+        }
 
         boolean continuar;
-
         do {
-            // 1) Mostrar líneas
-            System.out.println("\n=== LÍNEAS DISPONIBLES ===");
-            for (int i = 0; i < lineas.length; i++) {
-                System.out.println((i + 1) + ". " + lineas[i]);
-            }
+            mostrarLineas(lineas);
 
-            // 2) Elegir línea (con validación)
-            int idxLinea;
-            do {
-                System.out.print("Seleccione la línea (1-" + lineas.length + "): ");
-                while (!sc.hasNextInt()) { // valida que sea número
-                    sc.nextLine();
-                    System.out.print("Ingrese un número válido: ");
-                }
-                idxLinea = sc.nextInt();
-                sc.nextLine(); // limpiar salto
-            } while (idxLinea < 1 || idxLinea > lineas.length);
-            idxLinea--; // a índice base 0
+            int idxLinea = seleccionarLinea(sc, lineas.length);
+            int cantidad = seleccionarCantidadAmbientes(sc);
 
-            // 3) Cantidad de ambientes (1-3)
-            int cantidad;
-            do {
-                System.out.print("¿Cuántos ambientes desea registrar para esta línea? (1-3): ");
-                while (!sc.hasNextInt()) {
-                    sc.nextLine();
-                    System.out.print("Ingrese un número válido (1-3): ");
-                }
-                cantidad = sc.nextInt();
-                sc.nextLine();
-            } while (cantidad < 1 || cantidad > 3);
-
-            // Inicializar arreglos para esta línea
             tipos[idxLinea] = new String[cantidad];
             descripciones[idxLinea] = new String[cantidad];
             inventarios[idxLinea] = new String[cantidad];
 
-            // 4) Registrar cada ambiente
             for (int i = 0; i < cantidad; i++) {
-                System.out.println("\nAmbiente " + (i + 1));
-                int tipoOpcion;
-                do {
-                    System.out.println("Tipo de ambiente:");
-                    System.out.println("1. Maquinaria");
-                    System.out.println("2. Especializado");
-                    System.out.println("3. Normal");
-                    System.out.print("Seleccione (1-3): ");
-                    while (!sc.hasNextInt()) {
-                        sc.nextLine();
-                        System.out.print("Ingrese un número válido (1-3): ");
-                    }
-                    tipoOpcion = sc.nextInt();
-                    sc.nextLine();
-                } while (tipoOpcion < 1 || tipoOpcion > 3);
-
-                tipos[idxLinea][i] = switch (tipoOpcion) {
-                    case 1 -> "Maquinaria";
-                    case 2 -> "Especializado";
-                    default -> "Normal";
-                };
-
-                System.out.print("Descripción del ambiente: ");
-                descripciones[idxLinea][i] = sc.nextLine();
-
-                System.out.print("Inventario breve: ");
-                inventarios[idxLinea][i] = sc.nextLine();
+                registrarAmbiente(sc, idxLinea, i);
             }
 
-            // 5) Mostrar lo registrado para esa línea
-            System.out.println("\nAmbientes para la línea: " + lineas[idxLinea]);
+            mostrarAmbientesDeLinea(idxLinea, lineas[idxLinea]);
+
+            continuar = preguntarContinuar(sc);
+
+        } while (continuar);
+    }
+
+    // Muestra todas las líneas disponibles
+    private void mostrarLineas(String[] lineas) {
+        System.out.println("\n=== LÍNEAS DISPONIBLES ===");
+        for (int i = 0; i < lineas.length; i++) {
+            System.out.println((i + 1) + ". " + lineas[i]);
+        }
+    }
+
+    // Selecciona la línea
+    private int seleccionarLinea(Scanner sc, int totalLineas) {
+        int idx;
+        do {
+            System.out.print("Seleccione la línea (1-" + totalLineas + "): ");
+            while (!sc.hasNextInt()) {
+                sc.nextLine();
+                System.out.print("Ingrese un número válido: ");
+            }
+            idx = sc.nextInt();
+            sc.nextLine();
+        } while (idx < 1 || idx > totalLineas);
+        return idx - 1;
+    }
+
+    // Cantidad de ambientes
+    private int seleccionarCantidadAmbientes(Scanner sc) {
+        int cantidad;
+        do {
+            System.out.print("¿Cuántos ambientes desea registrar? (1-3): ");
+            while (!sc.hasNextInt()) {
+                sc.nextLine();
+                System.out.print("Ingrese un número válido (1-3): ");
+            }
+            cantidad = sc.nextInt();
+            sc.nextLine();
+        } while (cantidad < 1 || cantidad > 3);
+        return cantidad;
+    }
+
+    // Registro de un ambiente específico
+    private void registrarAmbiente(Scanner sc, int idxLinea, int idxAmbiente) {
+        System.out.println("\nAmbiente " + (idxAmbiente + 1));
+
+        int tipoOpcion;
+        do {
+            System.out.println("Tipo de ambiente:");
+            System.out.println("1. Maquinaria");
+            System.out.println("2. Especializado");
+            System.out.println("3. Normal");
+            System.out.print("Seleccione (1-3): ");
+            while (!sc.hasNextInt()) {
+                sc.nextLine();
+                System.out.print("Ingrese un número válido (1-3): ");
+            }
+            tipoOpcion = sc.nextInt();
+            sc.nextLine();
+        } while (tipoOpcion < 1 || tipoOpcion > 3);
+
+        tipos[idxLinea][idxAmbiente] = switch (tipoOpcion) {
+            case 1 -> "Maquinaria";
+            case 2 -> "Especializado";
+            default -> "Normal";
+        };
+
+        System.out.print("Descripción del ambiente: ");
+        descripciones[idxLinea][idxAmbiente] = sc.nextLine();
+
+        System.out.print("Inventario breve: ");
+        inventarios[idxLinea][idxAmbiente] = sc.nextLine();
+    }
+
+    // Mostrar ambientes de una línea específica
+    public void mostrarAmbientesDeLinea(int idxLinea, String nombreLinea) {
+        System.out.println("\nAmbientes para la línea: " + nombreLinea);
+        if (tipos[idxLinea] != null) {
             for (int i = 0; i < tipos[idxLinea].length; i++) {
                 System.out.println("  - Ambiente " + (i + 1) + ": " + tipos[idxLinea][i]);
                 System.out.println("    Descripción: " + descripciones[idxLinea][i]);
                 System.out.println("    Inventario: " + inventarios[idxLinea][i]);
             }
+        } else {
+            System.out.println("No hay ambientes registrados para esta línea.");
+        }
+    }
 
-            // 6) Preguntar si desea continuar
-            System.out.print("\n¿Desea asignar ambientes a otra línea? (s/n): ");
-            String resp = sc.nextLine().trim().toLowerCase();
-            continuar = resp.equals("s");
+    // Mostrar todos los ambientes de todas las líneas
+    public void mostrarAmbientes(lineaFormacion lf) {
+        String[] lineas = lf.getNombre();
+        for (int i = 0; i < lineas.length; i++) {
+            mostrarAmbientesDeLinea(i, lineas[i]);
+        }
+    }
 
-        } while (continuar);
+    // Preguntar si continuar
+    private boolean preguntarContinuar(Scanner sc) {
+        System.out.print("\n¿Desea asignar ambientes a otra línea (s/n): ");
+        return sc.nextLine().trim().equalsIgnoreCase("s");
+    }
+
+    // Getter opcional para obtener ambientes por línea
+    public String[] getAmbientesPorLinea(int idxLinea) {
+        return tipos != null ? tipos[idxLinea] : null;
     }
     public String[][] getTipos() {
     return tipos;
@@ -116,4 +157,3 @@ public class ambiente {
     return inventarios;
     }
 }
-
