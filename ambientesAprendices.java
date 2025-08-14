@@ -1,8 +1,9 @@
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
+import java.util.ArrayList;
 
-public class ambientesAprendices {
+public class ambienteAprendices {
     private final ArrayList<aprendiz> asignados = new ArrayList<>();
     private final HashSet<String> documentosAsignados = new HashSet<>();
 
@@ -119,6 +120,20 @@ public class ambientesAprendices {
             }
         } while (op < min || op > max);
         return op;
-
     }
+
+    public ArrayList<aprendiz> getAprendicesPorAmbiente(int idxLinea, int idxAmbiente) {
+    return new ArrayList<>(asignados);
+    }
+
+    public void mostrarAprendicesRegistrados() {
+    if (asignados.isEmpty()) {
+        System.out.println("No hay aprendices registrados.");
+        return;
+    }
+    for (aprendiz a : asignados) {
+        System.out.println(a);
+    }
+}
+
 }
