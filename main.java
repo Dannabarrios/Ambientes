@@ -8,7 +8,7 @@ public class main {
         lineaFormacion linea = new lineaFormacion();
         programaFormacion programa = new programaFormacion();
         ambiente ambiente = new ambiente();
-        ambientesAprendices aa = new ambientesAprendices();
+        ambienteAprendices aa = new ambienteAprendices();
         horarioAprendiz ha = new horarioAprendiz();
         aprendiz aprendiz = new aprendiz(null, null, null, null);
         reportes reportes = new reportes(aa, ambiente);
@@ -32,7 +32,6 @@ public class main {
         System.out.println("6. Mirar asignacion de instructor por linea");
         System.out.println("7. Mirar asignacion de instructor por ambiente");
         System.out.println("8. Registrar aprendiz y asignar ambientes");
-        System.out.println("9. Asignar horario");
         System.out.println("10. Asignar horario a aprendices por ambiente");
         System.out.println("11. Validar restricciones");
         System.out.println("12. Coordinador");
