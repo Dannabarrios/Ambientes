@@ -37,5 +37,11 @@ public class aprendiz {
 public String getHorario() { return horario; }
 public void setHorario(String horario) { this.horario = horario; }
 
+
+
+    
+
 }
+
+
     
