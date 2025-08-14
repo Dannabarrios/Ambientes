@@ -104,5 +104,16 @@ public class ambiente {
 
         } while (continuar);
     }
+    public String[][] getTipos() {
+    return tipos;
+    }
+
+    public String[][] getDescripciones() {
+    return descripciones;
+   }
+
+    public String[][] getInventarios() {
+    return inventarios;
+    }
 }
 

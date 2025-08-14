@@ -7,7 +7,12 @@ public class main {
         lineaFormacion linea = new lineaFormacion();
         programaFormacion programa = new programaFormacion();
         ambiente ambiente = new ambiente();
+        instructor instructor = new instructor();
+        asignarInstructor asignarInstructor = new asignarInstructor();
+        asignarAmbiente asignarAmbiente = new asignarAmbiente();
 
+        
+        
         
         aprendiz aprendiz = new aprendiz();
     
@@ -20,11 +25,13 @@ public class main {
         System.out.println("3. Registar programa de formación");
         System.out.println("4. Registar ambiente");
         System.out.println("5. Registrar instructor");
-        System.out.println("6. Registrar aprendiz");
-        System.out.println("7. Asignar horario");
-        System.out.println("8. Reportes");
-        System.out.println("9. Validar restricciones");
-        System.out.println("10. Salir");
+        System.out.println("6. Mirar asignacion de instructor por linea");
+        System.out.println("7. Mirar asignacion de instructor por ambiente");
+        System.out.println("8. Registrar aprendiz");
+        System.out.println("9. Asignar horario");
+        System.out.println("10. Reportes");
+        System.out.println("11. Validar restricciones");
+        System.out.println("12. Salir");
         System.out.print("Opción: ");
         int opcion = scanner.nextInt();
 
@@ -45,9 +52,20 @@ public class main {
                 ambiente.asignarAmbientes(linea);
                 break;
             case 5:
-                System.out.println("pequeña.");
-                break;  
+                instructor.registrarInstructor();
+                instructor.mostrarInstructor();
+                break;
+              
             case 6:
+               asignarInstructor.asignarLineas(instructor.getNombres(), linea.getNombre());
+               asignarInstructor.mostrarAsignacionInstructor();
+
+                break;
+            case 7:
+                asignarAmbiente.asignarAmbientes(ambiente.getTipos,ambiente.getDescripciones,ambiente.getInventarios());
+                asignarAmbiente.mostrarAsignacionAmbientesInstructor();
+                break;
+            case 8:
                 aprendiz.registrarAprendiz();
                 aprendiz.mostrarAprendiz();
                 break;

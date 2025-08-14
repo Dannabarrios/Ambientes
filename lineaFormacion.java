@@ -42,8 +42,7 @@ public class lineaFormacion {
         }
     }
 
-    // Getters para acceder a los atributos si se necesitan en otras clases
     public String[] getNombre() {
         return nombre;
-    }  
+    }
 }
