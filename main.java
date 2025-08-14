@@ -8,21 +8,17 @@ public class main {
         lineaFormacion linea = new lineaFormacion();
         programaFormacion programa = new programaFormacion();
         ambiente ambiente = new ambiente();
+        ambientesAprendices aa = new ambientesAprendices();
+        horarioAprendiz ha = new horarioAprendiz();
+        aprendiz aprendiz = new aprendiz(null, null, null, null);
+        reportes reportes = new reportes(aa, ambiente);
         instructor instructor = new instructor();
         asignarInstructor asignarInstructor = new asignarInstructor();
         asignarAmbiente asignar = new asignarAmbiente();
         asignarAmbiente asignador = new asignarAmbiente();
         ArrayList<coordinador> coordinadores = new ArrayList<>();
-        
         asignar.mostrarAsignacionAmbiente();
-
         asignarAmbiente asignarAmbiente = new asignarAmbiente();
-        ambientesAprendices aa = new ambientesAprendices();
-        aprendiz aprendiz = new aprendiz(null, null, null, null);
-
-        
-    
-      
     
         do{
         System.out.println("- - - - - - - - - - - ");   
@@ -37,10 +33,11 @@ public class main {
         System.out.println("7. Mirar asignacion de instructor por ambiente");
         System.out.println("8. Registrar aprendiz y asignar ambientes");
         System.out.println("9. Asignar horario");
-        System.out.println("10. Reportes");
+        System.out.println("10. Asignar horario a aprendices por ambiente");
         System.out.println("11. Validar restricciones");
         System.out.println("12. Coordinador");
-        System.out.println("13. Salir");
+        System.out.println("13.  reportes");
+        System.out.println("14. Salir");
         System.out.print("Opción: ");
         int opcion = scanner.nextInt();
 
@@ -82,7 +79,7 @@ public class main {
                 System.err.println("");
                 break;
             case 10:
-                System.out.println("Reportes no implementados aún.");
+                reportes.mostrarMenuReportes();
                 break;
             case 11:
                 System.out.println("Validación de restricciones no implementada aún.");
