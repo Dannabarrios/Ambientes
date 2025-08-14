@@ -86,4 +86,3 @@ public class horarioAprendiz {
         return opcion - 1; // devolver índice
     }
 }
-
