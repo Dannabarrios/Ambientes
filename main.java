@@ -7,7 +7,7 @@ public class main {
         lineaFormacion linea = new lineaFormacion();
         programaFormacion programa = new programaFormacion();
         ambiente ambiente = new ambiente();
-        ambientesAprendices aa = new ambientesAprendices();
+        asignarAmbiente aa = new asignarAmbiente();
         aprendiz aprendiz = new aprendiz(null, null, null, null);
     
         do{
