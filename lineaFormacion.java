@@ -18,7 +18,7 @@ public class lineaFormacion {
 
             // 
             if (cantidad < 1 || cantidad > 3) {
-                System.out.println("Debe ingresar un numero entre 1 - 3");
+                System.out.println("Debe ingresar un numero entre 1 y 3");
             }
         } while (cantidad < 1 || cantidad > 3);
 
@@ -42,7 +42,8 @@ public class lineaFormacion {
         }
     }
 
+    // Getters para acceder a los atributos si se necesitan en otras clases
     public String[] getNombre() {
         return nombre;
-    }
+    }  
 }
