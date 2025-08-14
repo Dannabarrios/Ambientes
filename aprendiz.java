@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class aprendiz {
     private String nombre;
     private String apellido;
@@ -29,5 +31,11 @@ public class aprendiz {
     public String getFicha() {
         return ficha;
     }
-}
 
+    private String horario = "Sin asignar";
+
+public String getHorario() { return horario; }
+public void setHorario(String horario) { this.horario = horario; }
+
+}
+    
