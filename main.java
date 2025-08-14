@@ -7,7 +7,8 @@ public class main {
         lineaFormacion linea = new lineaFormacion();
         programaFormacion programa = new programaFormacion();
         ambiente ambiente = new ambiente();
-        aprendiz aprendiz = new aprendiz();
+        ambientesAprendices aa = new ambientesAprendices();
+        aprendiz aprendiz = new aprendiz(null, null, null, null);
     
         do{
         System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - ");   
@@ -46,9 +47,7 @@ public class main {
                 System.out.println("pequeña.");
                 break;  
             case 6:
-                aprendiz aprendiz = new aprendiz();
-                aprendiz.registrarAprendiz();
-                aprendiz.mostrarAprendiz();
+                aa.asignarAprendices(linea, programa, ambiente);
                 break;
             default:
                 System.out.println("navidad");
