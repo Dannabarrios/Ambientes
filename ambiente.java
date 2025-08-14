@@ -11,7 +11,7 @@ public class ambiente {
         String[] lineas = lf.getNombre();
 
         if (lineas == null || lineas.length == 0) {
-            System.out.println("No hay líneas registradas.");
+            System.out.println("No hay lineas registradas.");
             return;
         }
 
@@ -143,6 +143,27 @@ public class ambiente {
 
     // Getter opcional para obtener ambientes por línea
     public String[] getAmbientesPorLinea(int idxLinea) {
-        return tipos != null ? tipos[idxLinea] : null;
+    if (tipos == null || idxLinea < 0 || idxLinea >= tipos.length || tipos[idxLinea] == null) {
+        return new String[0];
+    }
+    String[] result = new String[tipos[idxLinea].length];
+    for (int i = 0; i < result.length; i++) {
+        String tipo = tipos[idxLinea][i] != null ? tipos[idxLinea][i] : "Sin tipo";
+        String desc = (descripciones != null && descripciones[idxLinea] != null && descripciones[idxLinea][i] != null)
+                      ? descripciones[idxLinea][i] : "";
+        result[i] = "Ambiente " + (i + 1) + " - " + tipo + (desc.isEmpty() ? "" : " (" + desc + ")");
+    }
+    return result;
+}
+
+
+    public String getDescripciones() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getDescripciones'");
+    }
+
+    public Object getTipos() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getTipos'");
     }
 }
