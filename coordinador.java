@@ -32,4 +32,3 @@ public class coordinador {
         throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
     }
 }
-
